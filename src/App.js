@@ -34,7 +34,7 @@ const App = () => {
   const [todo, setTodo] = useState("");
   const [title, setTitle] = useState(""); // 제목과 내용을 추가해주는 데 사용됨
 
-  const addUserHandler = () => {};
+  // const addUserHandler = () => {};
   // console.log(title);
 
   //Math.floor(Math.random()*100000) 1부터 10만까지의 랜덤 자연수
@@ -98,34 +98,34 @@ const App = () => {
 
   return (
     <StDiv All>
-      <Layout>
-        <Routes>
-          {/* 
+      {/* <Layout> */}
+      <Routes>
+        {/* 
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} /> */}
-          {/* <Route path="/" element={<App />} /> */}
-          <Route
-            path="/"
-            element={
-              <div>
-                <Form
-                  onSubmit={onSubmit}
-                  title={title}
-                  setTitle={setTitle}
-                  todo={todo}
-                  setTodo={setTodo}
-                ></Form>
-                <TodoList
-                  users={users}
-                  onDeleteToDo={onDeleteToDo}
-                  onChangeHandler={onChangeHandler}
-                />
-              </div>
-            }
-          />
-          <Route path="detail/:id" element={<Todo />} />
-        </Routes>
-      </Layout>
+        {/* <Route path="/" element={<App />} /> */}
+        <Route
+          path="/"
+          element={
+            <div>
+              <Form
+                onSubmit={onSubmit}
+                title={title}
+                setTitle={setTitle}
+                todo={todo}
+                setTodo={setTodo}
+              ></Form>
+              <TodoList
+                users={users}
+                onDeleteToDo={onDeleteToDo}
+                onChangeHandler={onChangeHandler}
+              />
+            </div>
+          }
+        />
+        <Route path="detail/:id" element={<Todo />} />
+      </Routes>
+      {/* </Layout> */}
     </StDiv>
   );
 };
