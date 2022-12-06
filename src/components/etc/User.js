@@ -1,6 +1,6 @@
 import CustomButton from "./Custombutton";
 
-function User(props) {
+function List(props) {
   console.log(props);
   return (
     <div className="square-style">
@@ -39,4 +39,4 @@ function User(props) {
   );
 }
 
-export default User;
+export default List;
