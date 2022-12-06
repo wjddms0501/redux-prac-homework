@@ -5,8 +5,13 @@ import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { add_todo, change_todo, delete_todo } from "./redux/modules/buttoner";
 import Form from "./components/form/Form";
-import Header from "./components/header/Header";
+// import Header from "./components/header/Header";
+// import TodoList from "./pages/TodoList";
+import Layout from "./components/layout/Layout";
+// import Router from "./shared/Router";
 import TodoList from "./pages/TodoList";
+import { Route, Routes } from "react-router-dom";
+import Todo from "./components/todo/Todo";
 
 //찾아본 문서, 구글링 단어 검색법 알려달라하기
 const App = () => {
@@ -69,19 +74,34 @@ const App = () => {
 
   return (
     <div className="all">
-      <Header />
-      <Form
-        addUserHandler={addUserHandler}
-        title={title}
-        setTitle={setTitle}
-        todo={todo}
-        setTodo={setTodo}
-      ></Form>
-      <TodoList
-        users={users}
-        onDeleteToDo={onDeleteToDo}
-        onChangeHandler={onChangeHandler}
-      ></TodoList>
+      <Layout>
+        <Routes>
+          {/* 
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} /> */}
+          {/* <Route path="/" element={<App />} /> */}
+          <Route
+            path="/"
+            element={
+              <div>
+                <Form
+                  addUserHandler={addUserHandler}
+                  title={title}
+                  setTitle={setTitle}
+                  todo={todo}
+                  setTodo={setTodo}
+                ></Form>
+                <TodoList
+                  users={users}
+                  onDeleteToDo={onDeleteToDo}
+                  onChangeHandler={onChangeHandler}
+                />
+              </div>
+            }
+          />
+          <Route path="detail/:id" element={<Todo />} />
+        </Routes>
+      </Layout>
     </div>
   );
 };

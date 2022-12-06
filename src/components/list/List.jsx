@@ -1,10 +1,14 @@
 import CustomButton from "../CustomButton/CustomButton";
+import { Link } from "react-router-dom";
 
 function List(props) {
   console.log(props);
   return (
     <div className="square-style">
       <div>
+        <Link to={`/detail/${props.user.id}`}>
+          <span style={{ cursor: "pointer" }}>상세보기</span>
+        </Link>
         <h2>{props.user.title}</h2>
         <h4>{props.user.todo}</h4>
         <div className="btns">

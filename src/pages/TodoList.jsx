@@ -1,6 +1,7 @@
 import List from "../components/list/List";
 
 function TodoList(props) {
+  console.log(props);
   return (
     <div className="contents">
       <div>
