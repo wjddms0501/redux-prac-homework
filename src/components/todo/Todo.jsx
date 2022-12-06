@@ -3,6 +3,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 
 function Todo() {
   const param = useParams();

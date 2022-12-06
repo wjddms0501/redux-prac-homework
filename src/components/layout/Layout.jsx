@@ -2,6 +2,7 @@
 
 import React from "react";
 import Header from "../header/Header";
+import styled from "styled-components";
 
 // const HeaderStyles = {
 //   width: "100%",

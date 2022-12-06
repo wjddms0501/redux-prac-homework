@@ -2,21 +2,21 @@
 css는 div 태그로 묶어준 아이들. 
 본체는 따로 묶어준 것 없이 딱 걔한테만 줘야하는 것들*/
 
-.all {
+/* .all {
   margin: 0 auto;
   max-width: 1200px;
   min-width: 800px;
-}
+} */
 
-.app-style {
+/* .app-style {
   max-width: 1200px;
   min-width: 800px;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-}
+} */
 
-.square-style {
+/* .square-style {
   width: 326px;
   height: 202px;
   border: 4px solid teal;
@@ -24,28 +24,29 @@ css는 div 태그로 묶어준 아이들.
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.btns {
+/* .btns {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-}
+} */
 
-.contents {
+/* .contents {
   padding: 0 24px;
-}
+} */
 
+/* 
 .top {
   width: 1200px;
   height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
-.middle {
+/* .middle {
   background-color: #eeeeee;
   width: 1200px;
   height: 100px;
@@ -54,20 +55,20 @@ css는 div 태그로 묶어준 아이들.
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
-}
-
+} */
+/* 
 .txt {
   border: 0px;
   border-radius: 10px;
   width: 264px;
   height: 40px;
   margin: 0 20px;
-}
+} */
 
-.txtline {
+/* .txtline {
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 20px;
-}
+} */

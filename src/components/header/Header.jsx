@@ -1,9 +1,25 @@
+import styled from "styled-components";
+
+// const header = () => {
+//  return (
+
+//  )
+// }
+
+const Top = styled.div`
+  width: 1200px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 function Header() {
   return (
-    <div className="top">
+    <Top>
       <p>🎉My To Do List🎉</p>
       <p>React</p>
-    </div>
+    </Top>
   );
 }
 export default Header;

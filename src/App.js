@@ -12,6 +12,8 @@ import Layout from "./components/layout/Layout";
 import TodoList from "./pages/TodoList";
 import { Route, Routes } from "react-router-dom";
 import Todo from "./components/todo/Todo";
+// import Header from "./components/header/Header";
+import styled, { css } from "styled-components";
 
 //찾아본 문서, 구글링 단어 검색법 알려달라하기
 const App = () => {
@@ -72,8 +74,20 @@ const App = () => {
     dispatch(change_todo(users));
   }
 
+  // function onSubmit() {}
+
+  const StDiv = styled.div`
+    ${(props) =>
+      props.All &&
+      css`
+        margin: 0 auto;
+        max-width: 1200px;
+        min-width: 800px;
+      `}
+  `;
+
   return (
-    <div className="all">
+    <StDiv All>
       <Layout>
         <Routes>
           {/* 
@@ -85,6 +99,7 @@ const App = () => {
             element={
               <div>
                 <Form
+                  // onSubmit={onSubmit}
                   addUserHandler={addUserHandler}
                   title={title}
                   setTitle={setTitle}
@@ -102,7 +117,7 @@ const App = () => {
           <Route path="detail/:id" element={<Todo />} />
         </Routes>
       </Layout>
-    </div>
+    </StDiv>
   );
 };
 export default App;

@@ -14,14 +14,14 @@ const Router = () => {
   return (
     <BrowserRouter>
       <App>
-        <Routes>
-          {/* 
+        {/* <Routes> */}
+        {/* 
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} /> */}
-          {/* <Route path="/" element={<App />} /> */}
-          <Route path="/" element={<TodoList />} />
-          <Route path="detail/:id" element={<Todo />} />
-        </Routes>
+        {/* <Route path="/" element={<App />} /> */}
+        {/* <Route path="/" element={<TodoList />} /> */}
+        {/* <Route path="detail/:id" element={<Todo />} /> */}
+        {/* </Routes> */}
       </App>
     </BrowserRouter>
   );
