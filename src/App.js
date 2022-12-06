@@ -15,6 +15,16 @@ import Todo from "./components/todo/Todo";
 // import Header from "./components/header/Header";
 import styled, { css } from "styled-components";
 
+const StDiv = styled.div`
+  ${(props) =>
+    props.All &&
+    css`
+      margin: 0 auto;
+      max-width: 1200px;
+      min-width: 800px;
+    `}
+`;
+
 //찾아본 문서, 구글링 단어 검색법 알려달라하기
 const App = () => {
   const users = useSelector((state) => state.buttoner.todos);
@@ -23,16 +33,8 @@ const App = () => {
   const dispatch = useDispatch();
   const [todo, setTodo] = useState("");
   const [title, setTitle] = useState(""); // 제목과 내용을 추가해주는 데 사용됨
-  const addUserHandler = () => {
-    dispatch(
-      add_todo({
-        id: Math.floor(Math.random() * 100000),
-        title: title,
-        todo: todo,
-        isDone: true,
-      }) //add_todo:액션크리에이터, {payload}
-    );
-  };
+
+  const addUserHandler = () => {};
   // console.log(title);
 
   //Math.floor(Math.random()*100000) 1부터 10만까지의 랜덤 자연수
@@ -74,17 +76,25 @@ const App = () => {
     dispatch(change_todo(users));
   }
 
-  // function onSubmit() {}
-
-  const StDiv = styled.div`
-    ${(props) =>
-      props.All &&
-      css`
-        margin: 0 auto;
-        max-width: 1200px;
-        min-width: 800px;
-      `}
-  `;
+  function onSubmit(e) {
+    //onsubmit을 누르면 제출은 하지만
+    e.preventDefault(); //새로고침은 하지말고 (제출방지)
+    if (title === "" && todo === "") {
+      //만약 title과 todo가 빈값이면
+      return; //return해라
+    }
+    setTitle(""); //Title을 setTitle로 빈값으로 비우고
+    setTodo(""); //Todo를 setTodo로 빈값으로 비우고
+    dispatch(
+      //dispatch로 action creator로 payload를 넘겨줄거야
+      add_todo({
+        id: Math.floor(Math.random() * 100000),
+        title: title,
+        todo: todo,
+        isDone: true,
+      }) //add_todo:액션크리에이터, {payload}
+    );
+  }
 
   return (
     <StDiv All>
@@ -99,8 +109,7 @@ const App = () => {
             element={
               <div>
                 <Form
-                  // onSubmit={onSubmit}
-                  addUserHandler={addUserHandler}
+                  onSubmit={onSubmit}
                   title={title}
                   setTitle={setTitle}
                   todo={todo}
@@ -120,4 +129,5 @@ const App = () => {
     </StDiv>
   );
 };
+
 export default App;
