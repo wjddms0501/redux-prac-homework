@@ -53,6 +53,7 @@ function Layout({ children }) {
     <div>
       <Header />
       <div style={{ ...layoutStyles }}>{children}</div>
+      {/* children : component의 return 안 내용들 */}
       <Footer />
     </div>
   );

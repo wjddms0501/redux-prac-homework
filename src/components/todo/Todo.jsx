@@ -51,11 +51,12 @@ const StButton = styled.button`
 `;
 
 function Todo() {
-  const param = useParams();
+  const param = useParams(); //param은 id값을 가져옴,
   const users = useSelector((state) => state.buttoner.todos);
   console.log(users);
 
   const user = users.find((user) => user.id === parseInt(param.id));
+  //저장소에 있는 user를 찾아와서 배열을 만들고 user에 있는 id와 가져온 id를 숫자로 만들어 비교한다.
   console.log(user);
   return (
     <DetailAll>
@@ -70,6 +71,7 @@ function Todo() {
             </StDiv>
             <StDiv DetailTxt>
               <h1>{user.title}</h1>
+              {/* 54,55,58번까지 있는 것을 조합해서 나온 id값이 '같은 user(58번)'에서 데이터들을 title, todo로 출력한다. */}
               <p>{user.todo}</p>
             </StDiv>
           </div>
