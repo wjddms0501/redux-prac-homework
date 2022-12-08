@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
-// import CustomButton from "./components/etc/Custombutton";
-// import User from "./components/etc/User";
 import { useSelector, useDispatch } from "react-redux";
 import { add_todo, change_todo, delete_todo } from "./redux/modules/buttoner";
 import Form from "./components/form/Form";
-// import Header from "./components/header/Header";
-// import TodoList from "./pages/TodoList";
-import Layout from "./components/layout/Layout";
-// import Router from "./shared/Router";
 import TodoList from "./pages/TodoList";
 import { Route, Routes } from "react-router-dom";
 import Todo from "./components/todo/Todo";
-// import Header from "./components/header/Header";
 import styled, { css } from "styled-components";
 
 const StDiv = styled.div`
@@ -27,12 +20,13 @@ const StDiv = styled.div`
 
 //찾아본 문서, 구글링 단어 검색법 알려달라하기
 const App = () => {
-  const users = useSelector((state) => state.buttoner.todos);
+  const users = useSelector((state) => state.buttoner.todos); //todos를 가져와서 useSelector로 선택하고 users라는 변수에 저장한다.
   console.log(users);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // dispatch라는 변수에 실행역할을 하는 useDispatch 실행함수를 담아줌 (=setTitle, setTodo랑 비슷한 역할)
   const [todo, setTodo] = useState("");
   const [title, setTitle] = useState(""); // 제목과 내용을 추가해주는 데 사용됨
+  // setTitle, setTodo가 todo와 title을 변경해주는 함수고 그 변경된 값이 useState에 담겨서 리렌더링 됩니다.
 
   // const addUserHandler = () => {};
   // console.log(title);
@@ -60,7 +54,8 @@ const App = () => {
   // setUsers(newUserList);
   // };
   function onDeleteToDo(id) {
-    dispatch(delete_todo(id));
+    //reducer에 있는 action creator의 type확인하고 payload(=id)값 넘겨주기
+    dispatch(delete_todo(id)); //onDelete버튼이 눌렸을 때 reducer의 18~23까지가 먼저 실행된 후 62~66번까지 실행된 것이 dispatch로 나타내짐
   }
 
   // const onChangeHandler = (id) => {
@@ -81,12 +76,12 @@ const App = () => {
     e.preventDefault(); //새로고침은 하지말고 (제출방지)
     if (title === "" && todo === "") {
       //만약 title과 todo가 빈값이면
-      return; //return해라
-    }
+      return; //return해라. return뒤에 값이 없음 (setTitle과 setTodo와 dispatch를 실행하지 않음)
+    } // 그렇지 않으면(else)
     setTitle(""); //Title을 setTitle로 빈값으로 비우고
     setTodo(""); //Todo를 setTodo로 빈값으로 비우고
+    //밑에 내용을 payload로 넘겨주고 reducer에서 add_todo에 대한 실행을 하고 dispatch로 나타내줄거야.
     dispatch(
-      //dispatch로 action creator로 payload를 넘겨줄거야
       add_todo({
         id: Math.floor(Math.random() * 100000),
         title: title,

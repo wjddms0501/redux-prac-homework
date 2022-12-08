@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 import { combineReducers } from "redux";
-import buttoner from "../modules/buttoner";
+import buttoner from "../modules/buttoner"; //받아온 reducer값 import해주기
 /*
 1. createStore()
 리덕스의 가장 핵심이 되는 스토어를 만드는 메소드(함수) 입니다. 
@@ -16,7 +16,7 @@ combineReducers은 여러 개의 독립적인 reducer의 반환 값을 하나의
 */
 
 const rootReducer = combineReducers({
-  buttoner: buttoner,
+  buttoner: buttoner, //받아온 reducer의 이름을 받아와서 지정해주기
 });
 const store = createStore(rootReducer);
 
